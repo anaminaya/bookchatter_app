@@ -10,5 +10,6 @@
 <div>
 <% if current_user %>
     <%= link_to "Add to favorite", "/favorites/#{@book.id}", {method: :post, class: "btn btn-success"} %>
+    <%= link_to "Add to reading list", "/lists/#{@book.id}", {method: :post, class: "btn btn-success"} %>
 <% end %>
 </div>
