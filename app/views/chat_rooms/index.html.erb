@@ -1,10 +1,7 @@
-<h3> Chat Rooms<h3>
+<h1>Chat rooms</h1>
 
-  <div>
-    <%= @chatrooms.each do |chat|%>
-      <p> User: <%= chat.user.id %></p>
-      <p> Chat: <%= chat.message_id%></p>
+<p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>
 
-      <br>
-    <% end %>  %>
-  </div>
+<ul>
+  <%= render @chat_rooms %>
+</ul>

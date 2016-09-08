@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   post '/lists/:book_id' => 'lists#create'
 
   get '/chatrooms' => 'chat_rooms#index'
-  post '/chatrooms/:message_id' => 'chat_rooms#create'
+  get'/chatrooms/new' => 'chat_rooms#new'
+  post '/chatrooms' => 'chat_rooms#create'
+  get'/chatrooms/:id' => 'chat_rooms#show'
 end

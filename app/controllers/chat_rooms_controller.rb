@@ -1,14 +1,30 @@
 class ChatRoomsController < ApplicationController
 
   def index
-    @chatrooms = ChatRoom.all
+    @chat_rooms = ChatRoom.all
   end
 
+  def new
+     @chat_room = ChatRoom.new
+   end
 
   def create
-    @chatrooms = ChatRoom.create(
-    user_id: current_user.id,
-    message_id: params[:message_id]
-    )
+     @chat_room = current_user.chat_rooms.build(chat_room_params)
+     if @chat_room.save
+       flash[:success] = 'Chat room added!'
+       redirect_to chat_rooms_path
+     else
+       render 'new'
+     end
+   end
 
+   private
+
+   def chat_room_params
+     params.require(:chat_room).permit(:title)
+   end
+
+  def show
+    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+  end
 end
