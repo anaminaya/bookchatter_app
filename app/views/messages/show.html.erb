@@ -11,7 +11,7 @@
 
         <!-- page-title start -->
         <!-- ================ -->
-        <h1 class="page-title"><%= @book.title %></h1>
+        <h1 class="page-title"><%= @message.title %></h1>
         <div class="separator-2"></div>
         <!-- page-title end -->
 
@@ -38,16 +38,13 @@
               </div>
             </div>
             <div>
-              <h4> Author: <%= @book.author %></h4>
-              <h4> Genre: <%= @book.genre %></h4>
+
             </div>
             <!-- pills end -->
           </div>
           <div class="col-md-8 pv-30">
-            <h2>Description</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem debitis enim facilis porro quia in voluptates praesentium, cupiditate, dolorum. Facilis minus, quidem! Id perspiciatis labore praesentium voluptatibus assumenda odio, magni.</p>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint beatae delectus obcaecati eveniet nulla voluptate odio est laborum veniam? Natus nemo provident, voluptate molestias sint, nam dolor blanditiis minus!</p>
+            <h2><%= @message.title %></h2>
+            <p><%= @message.content %></p>
             <hr class="mb-10">
             <div class="clearfix mb-20">
               <span>
@@ -57,27 +54,17 @@
                 <i class="fa fa-star text-default"></i>
                 <i class="fa fa-star"></i>
               </span>
-              <a href="#" class="wishlist"><i class="fa fa-heart-o pl-10 pr-5"></i>Wishlist</a>
-              <ul class="pl-20 pull-right social-links circle small clearfix margin-clear animated-effect-1">
-                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-              </ul>
+
             </div>
             <div class="row grid-space-10">
               <form role="form" class="clearfix">
                 <div class="col-md-4">
-                  <div class="form-group">
-                    <div>
-                    <% if current_user %>
-                        <%= link_to "Add to favorite", "/favorites/#{@book.id}", {method: :post, class: "btn btn-success"} %>
-                        <%= link_to "Add to reading list", "/lists/#{@book.id}", {method: :post, class: "btn btn-success"} %>
-                    <% end %>
-                    </div>
-
-                  </div>
+                  <% if current_user  %>
+                    <%= link_to "Edit", "/messages/#{@message.id}/edit", class: "btn btn-success" %>
+                    <%= link_to "Delete", "/messages/#{@message.id}", {method: :delete, class: "btn btn-danger" }%>
+                  <% end %>
                 </div>
-                
+
               </form>
             </div>
 

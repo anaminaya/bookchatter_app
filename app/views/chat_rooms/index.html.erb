@@ -1,7 +1,17 @@
-<h1>Chat rooms</h1>
+<div class="row col-md-8 col-md-offset-2" id="chatroom-title">
+  <h1>Chatrooms</h1>
+</div>
 
-<p><%= link_to 'New chat room', "chatrooms/new", class: 'btn btn-primary' %></p>
+<div class="row col-md-8 col-md-offset-2" id="chatrooms">
+  <%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+  <div id="chatroom-errors">
 
-<ul>
-  <%= render @chat_rooms %>
-</ul>
+  </div>
+    <ul id="chatroom-index">
+  <% if @chatrooms.any? %>
+      <%= render @chatrooms%>
+  <%else %>
+    </ul>
+    <p>What are you reading? Create your own chatroom!</p>
+  <% end %>
+</div>

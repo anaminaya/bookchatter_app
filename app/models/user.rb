@@ -6,9 +6,8 @@ class User < ApplicationRecord
 
   has_many :books
   has_many :books, through: :favorites
-  has_many :chat_rooms
-  has_many :messages, through: :chat_rooms
-  has_many :messages, class_name: "Message", foreign_key: "sender_id"
-  has_many :messages, class_name: "Message", foreign_key: "recipient_id"
+  has_many :messages
+  has_many :chatrooms, through: :messages
+  validates :email, presence: true, uniqueness: true
 
 end

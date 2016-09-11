@@ -1,8 +1,7 @@
 class ChatRoom < ApplicationRecord
 
-  belongs_to :sender, class_name: 'User'
-  belongs_to :receiver, class_name: 'User'
-  belongs_to :receiver, class_name: 'Message'
-  belongs_to :sender, class_name: 'Message'
+  has_many :messages, dependent: :destroy
+  has_many :users, through: :messages
+  validates :topic, presence: true, uniqueness: true, case_sensitive: false
 
 end

@@ -16,4 +16,12 @@ class ListsController < ApplicationController
       redirect_to "/books"
 
   end
+
+  def destroy
+    @list = List.find_by(id: params[:id])
+    flash[:success] = "The #{book.title} was removed from your reading list."
+    redirect_to '/lists'
+
+  end
+
 end

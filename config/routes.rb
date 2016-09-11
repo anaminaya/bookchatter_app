@@ -5,12 +5,28 @@ Rails.application.routes.draw do
 
   get '/favorites' => 'favorites#index'
   post '/favorites/:book_id' => 'favorites#create'
+  delete '/favorites/:id' => 'favorites#destroy'
 
   get '/lists' => 'lists#index'
   post '/lists/:book_id' => 'lists#create'
+  delete '/lists/:id' => 'lists#destroy'
 
-  get '/chatrooms' => 'chat_rooms#index'
-  get'/chatrooms/new' => 'chat_rooms#new'
-  post '/chatrooms' => 'chat_rooms#create'
-  get'/chatrooms/:id' => 'chat_rooms#show'
+  get '/chatrooms'=> 'chatrooms#index'
+  post '/chatrooms'=> 'chatrooms#create'
+  get '/chatrooms/new'=> 'chatrooms#new'
+  get '/chatrooms/:id/edit'=> 'chatrooms#edit'
+  get '/chatrooms/:id'=> 'chatrooms#show'
+  patch '/chatrooms/:id'=> 'chatrooms#update'
+  delete '/chatrooms/:id'=> 'chatrooms#destroy'
+
+  get '/messages'=> 'messages#index'
+  get '/messages/:id' => 'messages#show'
+  post '/messages' =>'messages#create'
+  get '/messages/new'=> 'messages#new'
+  get '/messages/:id/edit'=> 'messages#edit'
+  patch '/messages/:id'=> 'messages#update'
+  delete '/messages/:id'=> 'messages#destroy'
+
+
+
 end
