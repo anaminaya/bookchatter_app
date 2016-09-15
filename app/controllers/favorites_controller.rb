@@ -18,7 +18,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-  @favorite = Favorite.find_by(id: params[:id])
+  @favorite = Favorite.find_by(book_id: params[:book_id])
     flash[:success] = "The #{book.title} was removed from your favorite list."
     redirect_to '/favorites'
 

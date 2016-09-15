@@ -38,6 +38,7 @@
               </div>
             </div>
             <div>
+              <img src="<%= @book.image.link %>" alt="">
               <h4> Author: <%= @book.author %></h4>
               <h4> Genre: <%= @book.genre %></h4>
             </div>
@@ -65,20 +66,15 @@
               </ul>
             </div>
             <div class="row grid-space-10">
-              <form role="form" class="clearfix">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <div>
+
+                    <div class="col-md-4">
                     <% if current_user %>
-                        <%= link_to "Add to favorite", "/favorites/#{@book.id}", {method: :post, class: "btn btn-success"} %>
-                        <%= link_to "Add to reading list", "/lists/#{@book.id}", {method: :post, class: "btn btn-success"} %>
+                        <%= button_to "Add to favorite", "/favorites/#{@book.id}", {method: :post, class: "btn btn-success"} %>
+                        <%= button_to "Add to reading list", "/lists/#{@book.id}", {method: :post, class: "btn btn-success"} %>
                     <% end %>
                     </div>
 
-                  </div>
-                </div>
-                
-              </form>
+
             </div>
 
           </div>

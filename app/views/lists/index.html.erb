@@ -1,10 +1,81 @@
 <h3>  Reading list from favorites</h3>
 
-<div>
-  <%= @list.each do |book|%>
-    <p> Title: <%= book.title %></p>
-    <p> Author: <%= book.author %></p>
-    <p> Genre: <%= book.genre %></p>
-    <br>
-  <% end %>  %>
+
+
+<div class="banner dark-translucent-bg" style="background-image:url(''); background-position:50% 32%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-center col-md-offset-2 pv-20">
+        <h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Wellcome to <strong>Shop</strong></h2>
+        <div class="separator object-non-visible mt-10" data-animation-effect="fadeIn" data-effect-delay="100"></div>
+        <p class="text-center object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="light-gray-bg section">
+  <div class="container">
+    <!-- filters start -->
+    <div class="sorting-filters text-center mb-20">
+      <form class="form-inline">
+
+        <div class="form-group">
+          <label>Genre</label>
+          <select class="form-control">
+            <option selected="selected">Search</option>
+            <option>Mystery</option>
+            <option>Historical Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Fiction</option>
+            <option>Fantasy</option>
+            <option>Romance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <a href="#" class="btn btn-default">Submit</a>
+        </div>
+      </form>
+    </div>
+    <!-- filters end -->
+  </div>
+</div>
+<!-- Tab panes -->
+<div class="tab-content clear-style">
+  <div class="tab-pane active" id="pill-1">
+    <div class="listing-item mb-20">
+      <div class="row grid-space-0">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="overlay-container">
+            <img src="images/product-1.jpg" alt="">
+            <a class="overlay-link" href="s"><i class="fa fa-plus"></i></a>
+            <span class="badge"></span>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-8 col-lg-9">
+            <%= @lists.each do |item|%>
+          <div class="body">
+
+            <h3 class="margin-clear"> <%= item.book.title %></h3>
+
+              <p> Author: <%= item.book.author %></p>
+              <p> Genre: <%= item.book.genre %></p>
+
+            <p>
+              <i class="fa fa-star text-default"></i>
+              <i class="fa fa-star text-default"></i>
+              <i class="fa fa-star text-default"></i>
+              <i class="fa fa-star text-default"></i>
+              <i class="fa fa-star"></i>
+
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cum repellat nisi quaerat mollitia reiciendis totam repellendus dicta id dolorem voluptate debitis molestias molestiae asperiores, odit magni vitae placeat optio.</p>
+
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

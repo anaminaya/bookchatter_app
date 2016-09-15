@@ -50,14 +50,15 @@
             <span class="badge"></span>
           </div>
         </div>
-        <%= @favorites.each do |book|%>
+
         <div class="col-sm-6 col-md-8 col-lg-9">
-
+            <%= @favorites.each do |item|%>
           <div class="body">
-            <h3 class="margin-clear"> <%= book.title %></h3>
 
-              <p> Author: <%= book.author %></p>
-              <p> Genre: <%= book.genre %></p>
+            <h3 class="margin-clear"> <%= item.book.title %></h3>
+
+              <p> Author: <%= item.book.author %></p>
+              <p> Genre: <%= item.book.genre %></p>
 
             <p>
               <i class="fa fa-star text-default"></i>
@@ -70,11 +71,10 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cum repellat nisi quaerat mollitia reiciendis totam repellendus dicta id dolorem voluptate debitis molestias molestiae asperiores, odit magni vitae placeat optio.</p>
 
           </div>
+          <% end %>
         </div>
-        <% end %>
+
       </div>
     </div>
   </div>
 </div>
-
-<div>

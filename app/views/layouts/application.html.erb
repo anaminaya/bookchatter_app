@@ -9,12 +9,13 @@
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
+		<%= action_cable_meta_tag %>
 	</head>
 
 	<body class="no-trans front-page">
+
 		<div class="page-wrapper">
 			<div class="header-container">
-
 
 				<!-- header-top start -->
 				<!-- classes:  -->
@@ -37,13 +38,22 @@
 								<!-- ================ -->
 								<div id="header-top-second"  class="clearfix">
 
+
 									<!-- header top dropdowns start -->
 									<!-- ================ -->
 									<div class="header-top-dropdown text-right">
-										<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+										<% if user_signed_in? %>
+							      Logged in as <strong><%= current_user.email %></strong>.
+							      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
 										<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+										<% end %>
 										<div class="btn-group">
-											<a href="users/sign_up" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Sign Up</a>
+											<% if current_user.nil? %>
+											 <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+											 <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+
+												<a href="users/sign_up" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Sign Up</a>
+											<% end %>
 										</div>
 										<div class="btn-group dropdown">
 											<button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10"></i> Login</button>
@@ -126,7 +136,7 @@
 									<!-- logo -->
 									<div id="logo" class="logo">
 										<!-- <a href=""><img id="logo_img" src="" alt=""></a> -->
-										<h2> Bookchatter</h2>
+										<h2> <a href="/books">Bookchatter</h2>
 									</div>
 
 									<!-- name-and-slogan -->
@@ -175,23 +185,23 @@
 
 													<!-- mega-menu start -->
 													<li class="dropdown active mega-menu">
-														<a href="template/index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+														<a href="/books" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 														<ul class="dropdown-menu">
 															<li>
 																<div class="row">
 																	<div class="col-md-12">
-																		<h4 class="title"><i class="fa fa-laptop pr-10"></i> Demos</h4>
+
 																		<div class="row">
 																			<div class="col-sm-6 col-md-3">
 																				<div class="divider"></div>
 																				<ul class="menu">
-																					<li class="active"><a href="template/index.html"><i class="icon-home pr-10"></i>Home Default</a></li>
+																					<!-- <li class="active"><a href="template/index.html"><i class="icon-home pr-10"></i>Home Default</a></li>
 																					<li ><a href="template/index-corporate-1.html"><i class="icon-suitcase pr-10"></i>Corporate 1</a></li>
 																					<li ><a href="template/index-corporate-2.html"><i class="icon-suitcase pr-10"></i>Corporate 2</a></li>
 																					<li ><a href="template/index-corporate-3.html"><i class="icon-suitcase pr-10"></i>Corporate 3</a></li>
 																					<li ><a href="template/index-corporate-4.html"><i class="icon-suitcase pr-10"></i>Corporate 4 <span class="badge">v1.2</span></a></li>
 																					<li ><a href="template/index-corporate-5.html"><i class="icon-suitcase pr-10"></i>Corporate 5 (Law Firm) <span class="badge">New</span></a></li>
-																					<li ><a href="template/index-shop.html"><i class="icon-basket-1 pr-10"></i>Commerce 1</a></li>
+																					<li ><a href="template/index-shop.html"><i class="icon-basket-1 pr-10"></i>Commerce 1</a></li> -->
 																				</ul>
 																			</div>
 																			<div class="col-sm-6 col-md-3">
@@ -238,64 +248,25 @@
 													<!-- mega-menu end -->
 													<!-- mega-menu start -->
 													<li class="dropdown  mega-menu">
-														<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+														<a href="#" class="dropdown-toggle" data-toggle="dropdown">ChatRooms</a>
 														<ul class="dropdown-menu">
 															<li>
 																<div class="row">
 																	<div class="col-lg-8 col-md-9">
-																		<h4 class="title">Pages</h4>
+																		<h4 class="title">ChatRooms</h4>
 																		<div class="row">
 																			<div class="col-sm-4">
 																				<div class="divider"></div>
 																				<ul class="menu">
-																					<li ><a href="template/page-about.html"><i class="fa fa-angle-right"></i>About Us 1</a></li>
-																					<li ><a href="template/page-about-2.html"><i class="fa fa-angle-right"></i>About Us 2</a></li>
-																					<li ><a href="template/page-about-3.html"><i class="fa fa-angle-right"></i>About Us 3</a></li>
-																					<li ><a href="template/page-about-4.html"><i class="fa fa-angle-right"></i>About Us 4</a></li>
-																					<li ><a href="template/page-about-me.html"><i class="fa fa-angle-right"></i>About Me</a></li>
-																					<li ><a href="template/page-team.html"><i class="fa fa-angle-right"></i>Our Team - Options 1</a></li>
-																					<li ><a href="template/page-team-2.html"><i class="fa fa-angle-right"></i>Our Team - Options 2</a></li>
-																					<li ><a href="template/page-team-3.html"><i class="fa fa-angle-right"></i>Our Team - Options 3</a></li>
-																					<li ><a href="template/page-coming-soon.html"><i class="fa fa-angle-right"></i>Coming Soon Page</a></li>
-																					<li ><a href="template/page-faq.html"><i class="fa fa-angle-right"></i>FAQ page</a></li>
+																					<li ><a href="/chatrooms/new"><i class="fa fa-angle-right"></i>New Chat</a></li>
+																					<li ><a href=""><i class="fa fa-angle-right"></i></a></li>
+
 																				</ul>
 																			</div>
-																			<div class="col-sm-4">
-																				<div class="divider"></div>
-																				<ul class="menu">
-																					<li ><a href="template/page-services.html"><i class="fa fa-angle-right"></i>Services 1</a></li>
-																					<li ><a href="template/page-services-2.html"><i class="fa fa-angle-right"></i>Services 2</a></li>
-																					<li ><a href="template/page-services-3.html"><i class="fa fa-angle-right"></i>Services 3</a></li>
-																					<li ><a href="template/page-contact.html"><i class="fa fa-angle-right"></i>Contact 1</a></li>
-																					<li ><a href="template/page-contact-2.html"><i class="fa fa-angle-right"></i>Contact 2</a></li>
-																					<li ><a href="template/page-contact-3.html"><i class="fa fa-angle-right"></i>Contact 3</a></li>
-																					<li ><a href="template/page-login.html"><i class="fa fa-angle-right"></i>Login 1</a></li>
-																					<li ><a href="template/page-login-2.html"><i class="fa fa-angle-right"></i>Login 2 - Fullsreen</a></li>
-																					<li ><a href="template/page-signup.html"><i class="fa fa-angle-right"></i>Sign Up 1</a></li>
-																					<li ><a href="template/page-signup-2.html"><i class="fa fa-angle-right"></i>Sign Up 2 - Fullsreen</a></li>
-																				</ul>
-																			</div>
-																			<div class="col-sm-4">
-																				<div class="divider"></div>
-																				<ul class="menu">
-																					<li ><a href="template/page-404.html"><i class="fa fa-angle-right"></i>404 error</a></li>
-																					<li ><a href="template/page-404-2.html"><i class="fa fa-angle-right"></i>404 error - Parallax</a></li>
-																					<li ><a href="template/page-affix-sidebar.html"><i class="fa fa-angle-right"></i>Sidebar - Affix Menu</a></li>
-																					<li ><a href="template/page-left-sidebar.html"><i class="fa fa-angle-right"></i>Left Sidebar</a></li>
-																					<li ><a href="template/page-right-sidebar.html"><i class="fa fa-angle-right"></i>Right Sidebar</a></li>
-																					<li ><a href="template/page-two-sidebars.html"><i class="fa fa-angle-right"></i>Two Sidebars</a></li>
-																					<li ><a href="template/page-two-sidebars-left.html"><i class="fa fa-angle-right"></i>Two Sidebars Left</a></li>
-																					<li ><a href="template/page-two-sidebars-right.html"><i class="fa fa-angle-right"></i>Two Sidebars Right</a></li>
-																					<li ><a href="template/page-no-sidebars.html"><i class="fa fa-angle-right"></i>No Sidebars</a></li>
-																					<li ><a href="template/page-sitemap.html"><i class="fa fa-angle-right"></i>Sitemap</a></li>
-																				</ul>
-																			</div>
-																		</div>
+
 																	</div>
 																	<div class="col-lg-4 col-md-3 hidden-sm">
-																		<h4 class="title">Premium HTML5 Template</h4>
-																		<p class="mb-10">The Project is perfectly suitable for corporate, business and company webpages.</p>
-																		<img src="template/images/section-image-3.png" alt="The Project">
+
 																	</div>
 																</div>
 															</li>
