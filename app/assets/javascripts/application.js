@@ -10,7 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//
 //= require jquery
+//= require jquery.countdown.min
+//= require jquery.plugin.min
+//= require jquery.min
 //= require bootstrap-sprockets
+//= require js_manifest
 //= require_tree .
 //= require_tree ./channels

@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'messages',
        message: message.content,
        user: message.user.email
-     head :ok
+     render json: {success: 'hello'}
     else
       redirect_to chatrooms_path
     end

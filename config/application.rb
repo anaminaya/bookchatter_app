@@ -21,5 +21,9 @@ module Bookschatter
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # config.to_prepare do
+    #   Devise::SessionsController.skip_before_filter :
+    # end
   end
 end

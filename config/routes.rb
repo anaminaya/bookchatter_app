@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   post '/lists/:book_id' => 'lists#create'
   delete '/lists/:id' => 'lists#destroy'
 
-  
-  resources :chatrooms, param: :slug
+
+  resources :chatrooms
   resources :messages
 
   # Serve websocket cable requests in-process
