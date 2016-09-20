@@ -1,3 +1,3 @@
-class SessionsController < Devise::RegistrationsController
+class SessionsController < Devise::SessionsController
 
 end
