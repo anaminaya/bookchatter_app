@@ -12,10 +12,10 @@
 //
 //
 //= require jquery
-//= require jquery.countdown.min
-//= require jquery.plugin.min
-//= require jquery.min
 //= require bootstrap-sprockets
 //= require js_manifest
+//= require jquery_ujs
+//= require angular
+//= require app
 //= require_tree .
 //= require_tree ./channels

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>BookChatter | Home</title>
+		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
+		<meta name="author" content="htmlcoder.me">
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<%= action_cable_meta_tag %>
+	</head>
+  	<!-- body classes:  -->
+  	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+  	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+  	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+  	<!-- "gradient-background-header": applies gradient background to header -->
+  	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class="class="no-trans front-page transparent-header  " ">
+
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
+
+			<!-- header-container start -->
+			<div id="header" class="header-container">
+				<!-- header start -->
+				<!-- classes:  -->
+				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+				<!-- "full-width": mandatory class for the full-width menu layout -->
+				<!-- "centered": mandatory class for the centered logo layout -->
+				<!-- ================ -->
+				<header class="header pv-20  clearfix">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-4">
+								<!-- header-left start -->
+								<!-- ================ -->
+								<div class="header-left clearfix">
+                  <!-- logo -->
+                  <div id="logo" class="logo">
+                    <h2> <a href="/welcome">Bookchatter</h2>
+                  </div>
+								</div>
+								<!-- header-left end -->
+							</div>
+
+							<div class="header-top-dropdown text-right">
+								<% if !current_user %>
+									<%= link_to "Sign in", new_user_session_path, :class => 'btn dropdown-toggle btn-default btn-sm'  %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</header>
+				<!-- header end -->
+
+  			<!-- banner start -->
+  			<!-- ================ -->
+				<div class="banner clearfix">
+    			<div id="banner" class="banner dark-translucent-bg padding-bottom-clear" style="background-image:url('');">
+    				<!-- section start -->
+    				<!-- ================ -->
+    				<div class="container">
+    					<div class="row">
+    						<div class="col-md-8 text-center col-md-offset-2 space-bottom">
+    							<div class="title large_white">BookChatter</div>
+    							<div class="separator"></div>
+    							<p class="text-center lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit!</p>
+    						</div>
+    					</div>
+    				</div>
+
+	    				<!-- section end -->
+	    				<!-- section start -->
+	    				<!-- ================ -->
+  					<div class="pv-40 dark-translucent-bg">
+    					<div class="container">
+    						<div class="row">
+    							<div class="col-md-12">
+    								<div class="call-to-action text-center">
+    									<div class="form-inline margin-clear">
+
+    									</div>
+
+  										<%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-lg btn-gray-transparent btn-animated margin-clear'  %>
+
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+  					</div>
+							<!-- section end -->
+  				</div>
+				</div>
+    			<!-- banner end -->
+			</div>
+  	</div>
+			<!-- page-wrapper end -->
+
+	</body>
+</html>

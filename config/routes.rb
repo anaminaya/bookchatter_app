@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+  
 
-  get '/welcome' => 'pages#welcome'
+  get '/' => 'pages#welcome'
   get '/books' => 'books#index'
   get '/books/:id' => 'books#show'
 
@@ -14,9 +15,19 @@ Rails.application.routes.draw do
   post '/lists/:book_id' => 'lists#create'
   delete '/lists/:id' => 'lists#destroy'
 
+  namespace :api do
+    namespace :v1 do
+      get '/chatrooms/:id' => 'chatrooms#show'
+      get '/messages' => 'messages#index'
+      get '/messages/new' => 'messages#new'
+      post '/messages' => 'messages#create'
+    end
+  end
 
-  resources :chatrooms
-  resources :messages
+ get '/chatrooms/new' => 'chatrooms#new'
+ post '/chatrooms' => 'chatrooms#create'
+ get '/chatrooms/:id' => 'chatrooms#show'
+
 
   # Serve websocket cable requests in-process
     mount ActionCable.server => '/cable'
