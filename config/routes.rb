@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
-  
+
 
   get '/' => 'pages#welcome'
   get '/books' => 'books#index'
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       get '/messages' => 'messages#index'
       get '/messages/new' => 'messages#new'
       post '/messages' => 'messages#create'
+
+      get '/chatrooms' => 'js_chatrooms#index'
+      get '/chatrooms/:id' => 'js_chatrooms#show'
+      post '/favorites' => 'favorites#create'
     end
   end
 

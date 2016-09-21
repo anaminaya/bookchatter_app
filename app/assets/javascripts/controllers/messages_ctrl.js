@@ -2,22 +2,24 @@
   'use strict';
 
   angular.module('app').controller('messagesCtrl', function($scope, $http) {
-    App.activity = App.cable.subscriptions.create("MessagesChannel", {
-      received: function(data) {
-        console.log(data);
-        console.log($scope.chatroom.messages);
-        $scope.chatroom.messages.push(data);
-        $scope.$apply();
-      }
-    });
 
-    $scope.getChatroom = function(id) {
-      console.log(id)
-      $http.get('/api/v1/chatrooms/' + id + '.json').then(function(response) {
-        console.log(response)
-        $scope.chatroom = response.data;
-      });
-    };
+      $scope.getChatroom = function(id) {
+        $http.get('/api/v1/chatrooms/' + id + '.json').then(function(response) {
+          $scope.chatroom = response.data;
+          App.activity = App.cable.subscriptions.create({
+            channel: "MessagesChannel",
+            chatroom_id: $scope.chatroom.id
+          },
+          {
+            received: function(data) {
+              console.log(data);
+              console.log($scope.chatroom.messages);
+              $scope.chatroom.messages.push(data);
+              $scope.$apply();
+            }
+          });
+        });
+      };
 
     $scope.sendMessage = function(content) {
 
