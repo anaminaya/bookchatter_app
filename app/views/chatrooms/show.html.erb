@@ -2,8 +2,8 @@
 
   <div class="row col-md-8 col-md-offset-2" ng-controller="messagesCtrl" ng-init="getChatroom(<%= params[:id] %>)">
     <h1>{{ chatroom.topic }}</h1>
-    <div class="panel panel-default" ng-if="chatroom.messages.length > 0">
-      <div class="panel-body" id="messages">
+    <div class="panel panel-default">
+      <div class="panel-body fixed-panel" id="messages">
         <h4 ng-repeat="message in chatroom.messages">{{message.email}}: <span style="font-weight: 200;">{{ message.content }}</span></h4>
       </div>
     </div>

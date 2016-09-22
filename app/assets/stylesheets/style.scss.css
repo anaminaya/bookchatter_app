@@ -16,3 +16,8 @@
 .col-lg-push-3{
   left: 15%;
 }
+
+.fixed-panel{
+  height: 300px;
+  overflow-y: scroll;
+}

@@ -4,7 +4,7 @@
     <div class="chatroom-form">
       <%= form_tag("/chatrooms", method: 'post') do %>
         <div class="input-group">
-          <span class="input-group-addon">topic:</span>
+          <span class="input-group-addon">Book Title:</span>
           <%= text_field_tag :topic, nil, class: "form-control"%>
         </div>
         <%= submit_tag "Save", class: "btn btn-primary", id: "create-chatroom" %>
@@ -13,8 +13,17 @@
   </div>
 
   <ul class="list-unstyled">
-    <% @chatrooms.each do |chatroom| %>
-      <li><h3><%= link_to chatroom.topic, "/chatrooms/#{chatroom.id}" %></h3></li>
-    <% end %>
+    <div ng-app="app">
+      <div ng-controller="favoritechatroomCtrl" ng-init="setup()" class="row">
+        <div ng-repeat="chatroom in chatrooms" class="col-md-6 framework-well">
+          <div class="col-md-12 well">
+            <h3 ng-href="{{ chatroom.topic }}">{{ chatroom.topic }}</h3>
+              <div ng-if="chatroom.favoriteChatroom" class="alert alert-success favorite-alert" role="alert">{{chatroom.favoriteChatroom}}</div>
+              <h5>By: {{ chatroom.by }}</h5>
+              <i ng-click="favorite(chatroom)" ng-class="{'fa-heart': chatroom.favorite, 'fa-heart-o': !chatroom.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
   </ul>
 </div>
