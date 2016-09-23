@@ -1,4 +1,3 @@
 class JsChatroomsController < ApplicationController
-
-
+  
 end

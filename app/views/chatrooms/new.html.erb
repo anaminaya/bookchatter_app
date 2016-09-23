@@ -11,19 +11,4 @@
       <% end %>
     </div>
   </div>
-
-  <ul class="list-unstyled">
-    <div ng-app="app">
-      <div ng-controller="favoritechatroomCtrl" ng-init="setup()" class="row">
-        <div ng-repeat="chatroom in chatrooms" class="col-md-6 framework-well">
-          <div class="col-md-12 well">
-            <h3 ng-href="{{ chatroom.topic }}">{{ chatroom.topic }}</h3>
-              <div ng-if="chatroom.favoriteChatroom" class="alert alert-success favorite-alert" role="alert">{{chatroom.favoriteChatroom}}</div>
-              <h5>By: {{ chatroom.by }}</h5>
-              <i ng-click="favorite(chatroom)" ng-class="{'fa-heart': chatroom.favorite, 'fa-heart-o': !chatroom.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ul>
 </div>

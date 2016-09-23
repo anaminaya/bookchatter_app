@@ -13,49 +13,18 @@
     </div>
   </div>
 </div>
-<div class="light-gray-bg section">
-  <div class="container">
-    <!-- filters start -->
-    <div class="sorting-filters text-center mb-20">
-      <form class="form-inline">
 
-        <div class="form-group">
-          <label>Genre</label>
-          <select class="form-control">
-            <option selected="selected">Search</option>
-            <option>Mystery</option>
-            <option>Historical Fiction</option>
-            <option>Non-Fiction</option>
-            <option>Fiction</option>
-            <option>Fantasy</option>
-            <option>Romance</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <a href="#" class="btn btn-default">Submit</a>
-        </div>
-      </form>
-    </div>
-    <!-- filters end -->
-  </div>
-</div>
 <!-- Tab panes -->
 <div class="tab-content clear-style">
   <div class="tab-pane active" id="pill-1">
     <div class="listing-item mb-20">
       <div class="row grid-space-0">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="overlay-container">
-            <img src="images/product-1.jpg" alt="">
-            <a class="overlay-link" href="s"><i class="fa fa-plus"></i></a>
-            <span class="badge"></span>
-          </div>
-        </div>
-
         <div class="col-sm-6 col-md-8 col-lg-9">
-            <%= @lists.each do |item|%>
+            <% @lists.each do |item|%>
           <div class="body">
-
+            <div class="overlay-container">
+              <img src="<%= item.book.image.link %>">
+            </div>
             <h3 class="margin-clear"> <%= item.book.title %></h3>
 
               <p> Author: <%= item.book.author %></p>

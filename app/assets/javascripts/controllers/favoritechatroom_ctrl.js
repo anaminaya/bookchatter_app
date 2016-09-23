@@ -8,6 +8,13 @@
       });
     }
 
+    $scope.showfavorites = function(){
+      console.log("success");
+
+    }
+
+    $scope.activeView = "newChatroom";
+
     $scope.favorite = function(chatroom) {
       chatroom.favorite = chatroom.favorite ? 0 : 1
       // prefers to pass numbers/strings in the params instead of booleans

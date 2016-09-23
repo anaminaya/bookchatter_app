@@ -1,7 +1,9 @@
 class ChatroomsController < ApplicationController
+  def index
+  end
+
 
   def show
-
   end
 
   def new
@@ -15,6 +17,4 @@ class ChatroomsController < ApplicationController
 
     redirect_to "/chatrooms/#{@chatroom.id}"
   end
-
-
 end

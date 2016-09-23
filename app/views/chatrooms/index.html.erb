@@ -1,0 +1,26 @@
+<div ng-app="app">
+  <div ng-controller="favoritechatroomCtrl" ng-init="setup()" class="row">
+    <div class="btn-group dropdown">
+      <div class="header-right clearfix">
+        <ul class="dropdown-menu-right">
+            <%= form_tag('/chatrooms', :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search Book " %>
+              <%= submit_tag "Search" %>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+   <button class="btn btn-animated btn-default btn-sm pull-right"
+     style="margin-right:10%">Favorites<i class="fa fa-heart-o"></i></button>
+    <ul class="list-unstyled" style="margin: 100px 25px 20px 25px">
+      <div ng-repeat="chatroom in chatrooms" class="col-md-6 framework-well">
+          <div class="col-md-12 well">
+            <h3 ng-href="{{ chatroom.topic }}">{{ chatroom.topic }}</h3>
+              <div ng-if="chatroom.favoriteChatroom" class="alert alert-success favorite-alert" role="alert">{{chatroom.favoriteChatroom}}</div>
+              <h5>By: {{ chatroom.by }}</h5>
+              <i ng-click="favorite(chatroom)" ng-class="{'fa-heart': chatroom.favorite, 'fa-heart-o': !chatroom.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
+          </div>
+        </div>
+      </ul>
+  </div>
+</div>

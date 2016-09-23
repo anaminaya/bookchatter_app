@@ -21,16 +21,12 @@ Rails.application.routes.draw do
       get '/messages' => 'messages#index'
       get '/messages/new' => 'messages#new'
       post '/messages' => 'messages#create'
-
-      get '/favechatrooms' => 'js_chatrooms#index'
-      get '/favechatrooms/:id' => 'js_chatrooms#show'
       post '/favorites' => 'favorites#create'
     end
   end
 
-  get '/favechatrooms' => 'js_chatrooms#index'
-  get '/favechatrooms/:id' => 'js_chatrooms#index'
 
+   get '/chatrooms' => 'chatrooms#index'
    get '/chatrooms/new' => 'chatrooms#new'
    post '/chatrooms' => 'chatrooms#create'
    get '/chatrooms/:id' => 'chatrooms#show'
