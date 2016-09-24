@@ -169,12 +169,27 @@
 													<!-- Nav-bar end -->
 
 													<!-- header dropdown buttons -->
+
 													<div class="header-dropdown-buttons hidden-xs ">
 														<div class="btn-group dropdown">
 															<div class="header-right clearfix">
 																<ul class="dropdown-menu-right">
 																		<%= form_tag('/books', :method => "get", id: "search-form") do %>
-																			<%= text_field_tag :search, params[:search], placeholder: "Search Book or Genre" %>
+																			<%= text_field_tag :search, params[:search], list: "genre", placeholder: "Search Book or Genre"%>
+																			<datalist id="genre">
+																				<option value="Historical Fiction">
+																				<option value="Mystery">
+																				<option value="Romance">
+																				<option value="Fiction">
+																				<option value="Fantasy">
+																				<option value="Thriller">
+																				<option value="Non-Fiction">
+																				<option value="Young Adult">
+																				<option value="Memoir">
+																				<option value="Horror">
+																				<option value="Humor">
+																				<option value="Classics">
+																			</datalist>
 																			<%= submit_tag "Search" %>
 																		<% end %>
 																</ul>
