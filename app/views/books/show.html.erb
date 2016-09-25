@@ -1,5 +1,5 @@
-<!-- - main-container start -->
-<!-- ================ -->
+<div ng-app="app">
+  <div ng-controller="bookratingsCtrl" ng-init="setup(<%= params[:id] %>)">
 <section class="main-container">
 
   <div class="container">
@@ -52,13 +52,9 @@
             <hr class="mb-10">
             <div class="clearfix mb-20">
               <span>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star"></i>
+                <i class="star-rating fa fa-lg" ng-repeat="star in book.stars" ng-click="favoriteBook(book, star)" ng-mouseover="fillStar(book, star)" ng-mouseleave="emptyStar(book, star)" ng-class="{'fa-star': star.filled, 'fa-star-o': !star.filled}" aria-hidden="true"></i>
               </span>
-              <a href="#" class="wishlist"><i class="fa fa-heart-o pl-10 pr-5"></i>Wishlist</a>
+
               <ul class="pl-20 pull-right social-links circle small clearfix margin-clear animated-effect-1">
                 <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
                 <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>

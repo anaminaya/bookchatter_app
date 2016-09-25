@@ -18,10 +18,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/chatrooms' => 'chatrooms#index'
+      get '/chatrooms/:id' => 'chatrooms#show'
       get '/messages' => 'messages#index'
       get '/messages/new' => 'messages#new'
       post '/messages' => 'messages#create'
       post '/favorites' => 'favorites#create'
+      post '/ratings/:id' => 'ratings#create'
+      get '/ratings/:id' => 'ratings#show'
+
     end
   end
 
@@ -30,6 +34,7 @@ Rails.application.routes.draw do
    get '/chatrooms/new' => 'chatrooms#new'
    post '/chatrooms' => 'chatrooms#create'
    get '/chatrooms/:id' => 'chatrooms#show'
+
 
 
   # Serve websocket cable requests in-process
