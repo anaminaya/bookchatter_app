@@ -18,8 +18,8 @@
 }
 
 .fixed-panel{
-  height: 300px;
-  overflow-y: scroll;
+  height: 350px;
+  overflow-y: auto;
 }
 
 .list-unstyled{
