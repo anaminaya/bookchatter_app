@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  require 'googlebooks'
+
   def index
     @books = Book.all
     if params[:search]
