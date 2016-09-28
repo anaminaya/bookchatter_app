@@ -13,13 +13,14 @@ class ListsController < ApplicationController
     book_id: params[:book_id]
     )
       flash[:success]= "Favorite Book has been added to your reading list."
-      redirect_to "/books"
+      redirect_to "/lists"
 
   end
 
   def destroy
     @list = List.find_by(id: params[:id])
-    flash[:success] = "The #{book.title} was removed from your reading list."
+    @list.destroy
+    flash[:success] = "The book was removed from your reading list."
     redirect_to '/lists'
 
   end

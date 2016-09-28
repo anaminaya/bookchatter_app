@@ -23,7 +23,7 @@
 
     function fillStars() {
       $scope.book.stars.forEach(function(star) {
-          star.filled = $scope.book.user_rating >= star.rating
+          star.filled = $scope.book.user_rating.rate >= star.rating
       })
     }
 
@@ -32,6 +32,7 @@
         if (s.rating > book.user_rating) {
           s.filled = false;
         }
+        console.log('outside if');
       })
     }
 

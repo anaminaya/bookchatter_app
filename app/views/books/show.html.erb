@@ -11,7 +11,7 @@
 
         <!-- page-title start -->
         <!-- ================ -->
-        <h1 class="page-title"><%= @book.title %></h1>
+        <h2 class="page-title"><%= @book.title %></h2>
         <div class="separator-2"></div>
         <!-- page-title end -->
 
@@ -45,10 +45,8 @@
             <!-- pills end -->
           </div>
           <div class="col-md-8 pv-30">
-            <h2>Description</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem debitis enim facilis porro quia in voluptates praesentium, cupiditate, dolorum. Facilis minus, quidem! Id perspiciatis labore praesentium voluptatibus assumenda odio, magni.</p>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint beatae delectus obcaecati eveniet nulla voluptate odio est laborum veniam? Natus nemo provident, voluptate molestias sint, nam dolor blanditiis minus!</p>
+            <h4>Description</h4>
+            <p><%= @book.description %> </p>
             <hr class="mb-10">
             <div class="clearfix mb-20">
               <span>

@@ -1,6 +1,6 @@
 class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :book, optional: true
-  belongs_to :chatroom
+  belongs_to :chatroom, optional: true
 
 end

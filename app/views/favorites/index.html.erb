@@ -1,47 +1,55 @@
-<div class="banner dark-translucent-bg" style="background-image:url(''); background-position:50% 32%;">
+<section class="main-container">
+
   <div class="container">
     <div class="row">
-      <div class="col-md-8 text-center col-md-offset-2 pv-20">
-        <h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Wellcome to <strong>Shop</strong></h2>
-        <div class="separator object-non-visible mt-10" data-animation-effect="fadeIn" data-effect-delay="100"></div>
-        <p class="text-center object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
-      </div>
-    </div>
-  </div>
-</div>
+      <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+        <% @favorites.each do |book|%>
 
-<!-- Tab panes -->
-<div class="tab-content clear-style">
-  <div class="tab-pane active" id="pill-1">
-    <div class="listing-item mb-20">
-      <div class="row grid-space-0">
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            <% @favorites.each do |book|%>
-          <div class="body">
+        <div class="col-sm-4">
+          <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
             <div class="overlay-container">
-              <img src="<%= book.image.link %>">
+
+
+
+              <div class="overlay-to-top">
+                <!-- <p class="small margin-clear"><em> <br> </em></p> -->
+              </div>
             </div>
-
-              <h3 class="margin-clear"> <%= book.title %></h3>
-
-                <p> Author: <%= book.author %></p>
-                <p> Genre: <%= book.genre %></p>
-
+            <div class="body">
+              <h3><%= book.title %></h3>
+              <h4><%= book.author %></h4>
+              <h4><%= book.genre %></h4>
+              <img src="<%= book.image.link %>" alt="">
+              <div class="separator"></div>
               <p>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star text-default"></i>
-                <i class="fa fa-star"></i>
 
               </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cum repellat nisi quaerat mollitia reiciendis totam repellendus dicta id dolorem voluptate debitis molestias molestiae asperiores, odit magni vitae placeat optio.</p>
+              <%= button_to "Remove from favorite", "/favorites/#{book.id}", {method: :delete, class: "btn btn-danger btn-sm btn-hvr hvr-sweep-to-right margin-clear"} %>
 
+            </div>
           </div>
-          <% end %>
         </div>
-
+        <% end %>
       </div>
+      <!-- sidebar start -->
+      <!-- ================ -->
+      <aside class="col-md-4 col-lg-3 col-md-pull-8 col-lg-pull-9">
+        <div class="sidebar">
+          <div class="block clearfix">
+            <h4 class="title">Sidebar menu</h4>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="/books">Home</a></li>
+                <li><a href="/chatrooms/new">New Chat</a></li>
+                <li><a href="/chatrooms">Chatrooms</a></li>
+                <li><a href="/favorites">Favorite Books</a></li>
+                <li><a href="/lists">To Read List</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
-</div>
+</section>
