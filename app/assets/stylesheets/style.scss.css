@@ -29,3 +29,18 @@
 .btn {
   margin-right:10%;
 }
+.description{
+  font-weight: normal;
+  font-size: 17px;
+  padding:5px;
+
+  margin-top:5px;
+
+  margin-bottom:5px;
+
+  margin-left:20px;
+
+  margin-right:20px;
+
+  line-height: 1.5;
+}

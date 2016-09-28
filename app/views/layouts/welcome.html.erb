@@ -17,7 +17,7 @@
   	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
   	<!-- "gradient-background-header": applies gradient background to header -->
   	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-	<body class="class="no-trans front-page transparent-header  " ">
+	<body class="no-trans front-page transparent-header ">
 
 		<!-- scrollToTop -->
 		<!-- ================ -->
@@ -52,6 +52,10 @@
 							</div>
 
 							<div class="header-top-dropdown text-right">
+								<% if user == current_user %>
+
+								<% end %>
+
 								<% if !current_user %>
 									<%= link_to "Sign in", new_user_session_path, :class => 'btn dropdown-toggle btn-default btn-sm'  %>
 								<% end %>
@@ -70,10 +74,10 @@
     				<div class="container">
     					<div class="row">
     						<div class="col-md-8 text-center col-md-offset-2 space-bottom">
-    							<div class="title-banner">BookChatter</div>
-									<h3>Whatever</h3>
+    							<div class="title-banner"></div>
+									<h3>BookChatter</h3>
     							<div class="separator"></div>
-    							<p class="text-center lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit!</p>
+    							<p class="text-center lead">Connects readers with other like-minded users to discuss the characters, books, and authors they are interested in.</p>
     						</div>
     					</div>
     				</div>
