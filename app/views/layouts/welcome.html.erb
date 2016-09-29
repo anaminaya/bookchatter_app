@@ -52,9 +52,7 @@
 							</div>
 
 							<div class="header-top-dropdown text-right">
-								<% if user == current_user %>
-
-								<% end %>
+								
 
 								<% if !current_user %>
 									<%= link_to "Sign in", new_user_session_path, :class => 'btn dropdown-toggle btn-default btn-sm'  %>

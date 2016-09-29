@@ -12,9 +12,10 @@
           },
           {
             received: function(data) {
+              console.log(data)
               var messages = $("#messages")
               if (messages.length > 0) {
-                messages.scrollTop(messages.prop("scrollHeight"))();
+                messages.scrollTop(messages.prop("scrollHeight"));
               }
               console.log($scope.chatroom.messages);
               $scope.chatroom.messages.push(data);
