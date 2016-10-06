@@ -2,35 +2,36 @@
 
   <div class="container">
     <div class="row">
-      <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
-        <% @books.each do |book|%>
+        <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+          <% @books.each do |book|%>
 
-        <div class="col-sm-4">
-          <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
-            <div class="overlay-container">
+          <div class="col-sm-4">
+            <div class="image-box style-2 mb-20 shadow bordered light-gray-bg text-center">
+              <div class="overlay-container">
 
 
 
-              <div class="overlay-to-top">
-                <!-- <p class="small margin-clear"><em> <br> </em></p> -->
+                <div class="overlay-to-top">
+                  <!-- <p class="small margin-clear"><em> <br> </em></p> -->
+                </div>
+              </div>
+              <div class="body">
+                <h4><%= book.title %></h4>
+                <h4><%= book.author %></h4>
+                <h4><%= book.genre %></h4>
+                <img src="<%= book.image.link %>" alt="">
+                <div class="separator"></div>
+                <p>
+
+                </p>
+                <a href="/books/<%= book.id %>" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+
               </div>
             </div>
-            <div class="body">
-              <h4><%= book.title %></h4>
-              <h4><%= book.author %></h4>
-              <h4><%= book.genre %></h4>
-              <img src="<%= book.image.link %>" alt="">
-              <div class="separator"></div>
-              <p>
-
-              </p>
-              <a href="/books/<%= book.id %>" class="btn btn-default btn-sm btn-hvr hvr-shutter-out-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
-
-            </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
+
       <!-- sidebar start -->
       <!-- ================ -->
       <aside class="col-md-4 col-lg-3 col-md-pull-8 col-lg-pull-9">
@@ -42,9 +43,9 @@
               <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="/books">Home</a></li>
                 <li><a href="/chatrooms/new">New Chat</a></li>
-                <li><a href="">Favorite Chatrooms</a></li>
+                <li><a href="/chatrooms">Chatrooms</a></li>
                 <li><a href="/favorites">Favorite Books</a></li>
-                <!-- <li><a href="page-contact.html"></a></li> -->
+                <li><a href="/lists">To Read List</a></li>
               </ul>
             </nav>
           </div>

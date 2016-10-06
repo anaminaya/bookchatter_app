@@ -12,7 +12,7 @@ class ListsController < ApplicationController
     user_id: current_user.id,
     book_id: params[:book_id]
     )
-      flash[:success]= "Favorite Book has been added to your reading list."
+      flash[:success]= "The book has been added to your reading list."
       redirect_to "/lists"
 
   end
